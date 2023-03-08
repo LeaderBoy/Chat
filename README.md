@@ -41,6 +41,12 @@ Just add your own API Key in app
 ![Image](Assets/screenshot-1.png "Image")
 ![Image](Assets/screenshot-2.png "Image")
 
+
+## Features
+
+* Display dialogue content through markdown
+* Support for continuous dialogue
+
 ## Contributing
 
 We are more than happy to accept external contributions to the project in the form of feedback, bug reports and even better - pull requests
