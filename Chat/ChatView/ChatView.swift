@@ -9,7 +9,6 @@ import AlertToast
 import Combine
 import SwiftUI
 
-
 struct ChatView: View {
     @StateObject var viewModel = ChatViewModel()
     @State var showAlert: Bool = false
@@ -17,30 +16,41 @@ struct ChatView: View {
     @State private var bindings: Set<AnyCancellable> = []
 
     var body: some View {
-        VStack(alignment: .trailing) {
-            Button(action: {
-                showAlert.toggle()
-            }) {
-                Image(systemName: "plus")
-            }.padding([.top, .trailing], 10)
+        ZStack(alignment: .bottomTrailing) {
+            VStack(alignment: .trailing) {
+                Button(action: {
+                    showAlert.toggle()
+                }) {
+                    Image(systemName: "plus")
+                }.padding([.top, .trailing], 10)
 
-            VStack {
-                ScrollViewReader { proxy in
-                    ScrollView {
-                        ChatMessageView()
-                            .padding(.horizontal)
-                            .environmentObject(viewModel)
-                    }
-                    .onChange(of: viewModel.lastMessage) { _ in
-                        withAnimation {
-                            proxy.scrollTo(viewModel.lastMessageID, anchor: .bottom)
+                VStack {
+                    ScrollViewReader { proxy in
+                        ScrollView {
+                            ChatMessageView()
+                                .padding(.horizontal)
+                                .environmentObject(viewModel)
+                        }
+                        .onChange(of: viewModel.lastMessage) { _ in
+                            withAnimation {
+                                proxy.scrollTo(viewModel.lastMessageID, anchor: .bottom)
+                            }
                         }
                     }
-                }
 
-                ChatToolBarView().environmentObject(viewModel)
+                    ChatToolBarView().environmentObject(viewModel)
+                }
             }
-        }.alert(R.Text.yourApiKey, isPresented: $showAlert, actions: {
+            
+            Button(action: {
+                NSApplication.shared.terminate(self)
+            }) {
+                Image(systemName: "power")
+            }
+            .buttonStyle(.borderless)
+            .padding([.bottom, .trailing], 10)
+        }
+        .alert(R.Text.yourApiKey, isPresented: $showAlert, actions: {
             SecureField(R.Text.apiKey, text: $viewModel.apiKey)
             // Any view other than Button would be ignored
             Button(R.Text.done, action: {
@@ -58,14 +68,14 @@ struct ChatView: View {
             bindToast()
         }
     }
-    
+
     func bindToast() {
         viewModel.$chatErr
             .filter { $0 != .none }
             .receive(on: DispatchQueue.main)
             .sink { _ in
                 self.showToast = true
-            }.store(in: &self.bindings)
+            }.store(in: &bindings)
     }
 }
 

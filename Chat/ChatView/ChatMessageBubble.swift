@@ -8,7 +8,6 @@
 import MarkdownUI
 import Splash
 import SwiftUI
-// import Down
 
 struct ChatMessageBubble: View {
     var message: ChatMessage
