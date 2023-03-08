@@ -18,7 +18,7 @@
 
 ## Download
 
-Go to [Release Page](https://github.com/OAuthSwift/OAuthSwift/wiki/Demo-application#add-a-new-service-in-demo-app)
+Go to [Release Page](https://github.com/LeaderBoy/Chat/releases)
 
 ## Usage
 
