@@ -27,9 +27,13 @@ Just add your own API Key in app
 ## Dependency
 
 [Super Coder](https://supercoder.lessimore.cn/) for generate Swift code and localization using ChatGPT's  translation.
+
 [Splash](https://github.com/JohnSundell/Splash) for code highlighting 
+
 [swift-markdown-ui](https://github.com/gonzalezreal/swift-markdown-ui.git) for Markdown
+
 [AlertToast](https://github.com/elai950/AlertToast.git) for toast
+
 [SDWebImageSwiftUI](https://github.com/SDWebImage/SDWebImageSwiftUI) for markdown image download and cache
 
 ## Screenshot
