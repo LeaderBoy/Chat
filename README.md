@@ -32,7 +32,7 @@ Just add your own API Key in app
 [AlertToast](https://github.com/elai950/AlertToast.git) for toast
 [SDWebImageSwiftUI](https://github.com/SDWebImage/SDWebImageSwiftUI) for markdown image download and cache
 
-## Images
+## Screenshot
 
 ![Image](Assets/screenshot-1.png "Image")
 ![Image](Assets/screenshot-2.png "Image")
