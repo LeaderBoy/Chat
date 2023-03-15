@@ -6,13 +6,7 @@
 
 # MacChatGPT
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat
-
- )](http://mit-license.org) [![Platform](https://img.shields.io/badge/platform-OSX-lightgrey.svg?style=flat
-
- )](https://developer.apple.com/resources/) [![Language](https://img.shields.io/badge/language-swift-orange.svg?style=flat
-
- )](https://developer.apple.com/swift)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://mit-license.org) [![Platform](https://img.shields.io/badge/platform-OSX-lightgrey.svg?style=flat)](https://developer.apple.com/resources/) [![Language](https://img.shields.io/badge/language-swift-orange.svg?style=flat)](https://developer.apple.com/swift)
 
  MacOS menu bar app for ChatGPT.
 
