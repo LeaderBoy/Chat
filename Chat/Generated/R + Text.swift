@@ -14,8 +14,16 @@ internal extension R {
     internal static let apiKey = Text.tr("Localizable", "api_key", fallback: "API Key")
   /// Please add API Key first
     internal static let apiKeyDesc = Text.tr("Localizable", "api_key_desc", fallback: "Please add API Key first")
+  /// API URL(Optional)
+    internal static let apiUrl = Text.tr("Localizable", "api_url", fallback: "API URL(Optional)")
+  /// https://api.openai.com
+    internal static let apiUrlPrompt = Text.tr("Localizable", "api_url_prompt", fallback: "https://api.openai.com")
   /// Cancel
     internal static let cancel = Text.tr("Localizable", "cancel", fallback: "Cancel")
+  /// Clear History
+    internal static let clearHistory = Text.tr("Localizable", "clear_history", fallback: "Clear History")
+  /// Are you sure to clear history?
+    internal static let clearHistoryDesc = Text.tr("Localizable", "clear_history_desc", fallback: "Are you sure to clear history?")
   /// Done
     internal static let done = Text.tr("Localizable", "done", fallback: "Done")
   /// Please enter your question

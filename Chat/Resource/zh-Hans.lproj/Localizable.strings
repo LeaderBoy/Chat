@@ -18,3 +18,15 @@
 
 // 你的API Key
 "your_api_key" = "您的API密钥";
+
+// API URL(可选)
+"api_url" = "API URL（可选）";
+
+// API URL提示
+"api_url_prompt" = "https://api.openai.com";
+
+// 清除历史记录
+"clear_history" = "清除历史记录";
+
+// 确定清除历史记录吗?
+"clear_history_desc" = "你确定要清除历史记录吗？";

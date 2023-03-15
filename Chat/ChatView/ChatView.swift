@@ -11,18 +11,32 @@ import SwiftUI
 
 struct ChatView: View {
     @StateObject var viewModel = ChatViewModel()
-    @State var showAlert: Bool = false
+    @State var showAPIKeyAlert: Bool = false
+    @State var showHistoryAlert: Bool = false
     @State private var showToast = false
     @State private var bindings: Set<AnyCancellable> = []
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            VStack(alignment: .trailing) {
-                Button(action: {
-                    showAlert.toggle()
-                }) {
-                    Image(systemName: "plus")
-                }.padding([.top, .trailing], 10)
+            VStack {
+                HStack {
+                    Button(action: {
+                        showAPIKeyAlert.toggle()
+                    }) {
+                        Image(systemName: "plus")
+                    }.buttonStyle(.borderless)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        showHistoryAlert.toggle()
+                    }) {
+                        Image(systemName: "trash")
+                    }.buttonStyle(.borderless)
+                }
+                .padding(10)
+                .background(Color.white.opacity(0.2))
+                .background(.regularMaterial)
 
                 VStack {
                     ScrollViewReader { proxy in
@@ -50,19 +64,40 @@ struct ChatView: View {
             .buttonStyle(.borderless)
             .padding([.bottom, .trailing], 10)
         }
-        .alert(R.Text.yourApiKey, isPresented: $showAlert, actions: {
+        
+        // History Alert
+        .alert(R.Text.clearHistory, isPresented: $showHistoryAlert, actions: {
+            // Any view other than Button would be ignored
+            Button(R.Text.done, action: {
+                showHistoryAlert = false
+                viewModel.clearHistory()
+            })
+            Button(R.Text.cancel, role: .cancel, action: {
+                showHistoryAlert = false
+            })
+        }) {
+            Text(R.Text.clearHistoryDesc)
+        }
+        
+        // API Key alert
+        .alert(R.Text.yourApiKey, isPresented: $showAPIKeyAlert, actions: {
+            
+            TextField(text: $viewModel.apiURL, prompt: .init(R.Text.apiUrlPrompt)) {}
             SecureField(R.Text.apiKey, text: $viewModel.apiKey)
             // Any view other than Button would be ignored
             Button(R.Text.done, action: {
-                showAlert = false
+                showAPIKeyAlert = false
                 viewModel.cacheAPIKey()
             })
             Button(R.Text.cancel, role: .cancel, action: {
-                showAlert = false
+                showAPIKeyAlert = false
             })
         }) {
             Text(R.Text.apiKeyDesc)
-        }.toast(isPresenting: $showToast) {
+        }
+        
+        // Message
+        .toast(isPresenting: $showToast) {
             AlertToast(displayMode: .hud, type: .error(Color.red), title: viewModel.chatErr.message)
         }.onAppear {
             bindToast()

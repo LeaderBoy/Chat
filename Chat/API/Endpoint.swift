@@ -30,6 +30,9 @@ extension Endpoint {
     func baseURL() -> String {
         switch self {
         case .chatCompletions:
+            if let url = UserDefaults.standard.string(forKey: API_URL),!url.isEmpty {
+                return url
+            }
             return "https://api.openai.com"
         }
     }

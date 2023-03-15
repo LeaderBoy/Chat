@@ -8,7 +8,8 @@
 import Foundation
 import AppKit
 
-private let API_KEY = "API_KEY"
+let API_KEY = "API_KEY"
+let API_URL = "API_URL"
 
 class ChatViewModel: ObservableObject {
     @Published private(set) var messages: [ChatMessage] = []
@@ -16,6 +17,7 @@ class ChatViewModel: ObservableObject {
     @Published private(set) var lastMessageID: String = ""
     @Published private(set) var isWorking: Bool = false
     @Published var apiKey: String = ""
+    @Published var apiURL: String = ""
     @Published var chatErr: ChatError = .none
 
     var usingMarkdown: Bool = true
@@ -87,6 +89,14 @@ class ChatViewModel: ObservableObject {
         // Re init
         api = ChatAPI(apiKey: apiKey)
         UserDefaults.standard.set(apiKey, forKey: API_KEY)
+        UserDefaults.standard.set(apiURL, forKey: API_URL)
+    }
+    
+    func clearHistory() {
+        messages.removeAll()
+        lastMessage = ""
+        lastMessageID = ""
+        api.clearHistory()
     }
     
     func copyMessage(_ message : ChatMessage) {

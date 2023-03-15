@@ -99,6 +99,10 @@ class ChatAPI: @unchecked Sendable {
     private func appendMessage(_ message:ChatMessage) {
         historyMessages.append(message)
     }
+    
+    func clearHistory() {
+        historyMessages.removeAll()
+    }
 }
 
 extension Array where Element == ChatMessage {
