@@ -56,3 +56,15 @@ We are more than happy to accept external contributions to the project in the fo
 ## License
 
 MacChatGPT is available under the MIT license. See the LICENSE file for more info.
+
+
+
+计算如下表格的密度平均值、标准差、和显著水平
+
+| 处理 | 密度 |
+| 1 | 45 |
+| 2 | 52.5 |
+| 3 | 60 |
+| 4 | 67.5 |
+
+
