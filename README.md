@@ -4,6 +4,32 @@
 
 </p>
 
+
+## Notice: This project is deprecated
+
+This project is no longer actively maintained and supported. Please consider using our new app, [ChatTab](https://chattab.app).
+
+ChatTab is a brand new native mac software for ChatGPT
+
+* Unique UI Design
+
+* iCloud
+
+* Better Markdown Experience
+
+* Better compatibility: macOS 11 +
+
+* Live in menubar
+
+* Displayed by shortcut keys, similar to Spotlight
+
+* Custom Prompt
+
+Learn more at [https://chattab.app](https://chattab.app)
+
+![ChatTab](https://imgur.com/s4SiG2N.png "ChatTab")
+
+
 # MacChatGPT
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://mit-license.org) [![Platform](https://img.shields.io/badge/platform-OSX-lightgrey.svg?style=flat)](https://developer.apple.com/resources/) [![Language](https://img.shields.io/badge/language-swift-orange.svg?style=flat)](https://developer.apple.com/swift)
